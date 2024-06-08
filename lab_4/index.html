@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 4</title>
+</head>
+<body>
+    <div id="task1">
+        <h2>Task 1: Change Content of &lt;p&gt;</h2>
+        <div id="myElement">
+            <p>Welcome to my website!</p>
+        </div>
+        <button onclick="changeContent()">Change Content</button>
+    </div>
+
+    <hr>
+
+    <div id="task2">
+        <h2>Task 2: Number Validation</h2>
+        <input type="text" id="userInput" placeholder="Enter a number">
+        <button onclick="checkInput()">Check</button>
+    </div>
+
+    <hr>
+
+    <div id="task3">
+        <h2>Task 3: Loop Output</h2>
+        <p id="demo"></p>
+    </div>
+
+    <script>
+        // Task 1: Change Content of <p>
+        function changeContent() {
+            document.getElementById("myElement").innerHTML = "<p>Hello there!</p>";
+        }
+
+        // Task 2: Number Validation
+        function checkInput() {
+            let userInput = document.getElementById("userInput").value;
+            if (isNaN(userInput)) {
+                alert("Please insert a number!");
+            } else {
+                if (parseInt(userInput) < 10) {
+                    alert("The number is lower than 10");
+                } else {
+                    alert("The number is higher than 10");
+                }
+            }
+        }
+
+        // Task 3: Loop Output
+        let text = "";
+        for (let i = 1; i <= 5; i++) {
+            text += "The number is " + i + "<br>";
+        }
+        document.getElementById("demo").innerHTML = text;
+    </script>
+</body>
+</html>

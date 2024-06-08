@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Information</title>
+</head>
+<body>
+    <h1>Book Information</h1>
+    <ul>
+        <li><strong>Title of the first book:</strong> <span id="firstBookTitle"></span></li>
+        <li><strong>Author of the second book:</strong> <span id="secondBookAuthor"></span></li>
+        <li><strong>Genres of all books:</strong> <span id="allGenres"></span></li>
+    </ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var jsonData = {
+                "Books": [
+                    {
+                        "title": "The Great Gatsby",
+                        "author": "F. Scott Fitzgerald",
+                        "publicationYear": 1925,
+                        "genres": ["Fiction", "Classic"]
+                    },
+                    {
+                        "title": "To Kill A Mockingbird",
+                        "author": "Harper Lee",
+                        "publicationYear": 1960,
+                        "genres": ["Fiction", "Coming-of-Age"]
+                    }
+                ]
+            };
+
+            // Display the title of the first book
+            document.getElementById('firstBookTitle').textContent = jsonData.Books[0].title;
+
+            // Display the author of the second book
+            document.getElementById('secondBookAuthor').textContent = jsonData.Books[1].author;
+
+            // Display the genres of all books
+            var allGenres = jsonData.Books.map(function(book) {
+                return book.genres.join(', ');
+            }).join(', ');
+            document.getElementById('allGenres').textContent = allGenres;
+        });
+    </script>
+</body>
+</html>
